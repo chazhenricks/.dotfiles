@@ -1,0 +1,26 @@
+[user]
+	name = Chaz Henricks
+	email = chenricks@providertrust.com
+[rerere]
+	enabled = true
+[init]
+	defaultBranch = main
+[branch]
+	autosetuprebase = always
+[push]
+	default = simple
+        main = no_push
+[core]
+	excludesfile = /Users/chenricks/.gitignore_global
+
+[alias]
+	unstage = reset HEAD --
+	uncommit = reset --soft HEAD~
+	co = checkout
+	branch-name = "!git rev-parse --abbrev-ref HEAD"
+	repull = "!git pull origin $(git branch-name)"
+	publish = "!git push -u origin $(git branch-name)"
+	forget = update-index --assume-unchanged
+	unforget = update-index --no-assume-unchanged
+    	forgotten = ! git ls-files -v | grep ^[a-z]
+	sla = log --oneline --decorate --graph --all
